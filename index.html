@@ -334,7 +334,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, [contenteditable]:fo
             </div>
             <div><a class="btn ghost" id="listenLink" href="https://youtu.be/2E2WA8_teMY" target="_blank" rel="noopener">Listen to the Song ↗</a></div>
           </div>
-          <audio id="audioEl" preload="metadata"></audio>
+          <audio id="audioEl" src="song.mp3" preload="metadata"></audio>
         </div>
       </div>
     </div>
@@ -547,6 +547,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")lb.classList
 /* ---------- Music ---------- */
 var _ll=document.getElementById("listenLink");if(_ll&&_ll.getAttribute("href")&&_ll.getAttribute("href")!=="#"){_ll.style.display="inline-flex";}
 var audio=document.getElementById("audioEl"),playBtn=document.getElementById("playBtn"),vinyl=document.getElementById("vinyl"),wave=document.getElementById("wave"),playState=document.getElementById("playState"),audioMsg=document.getElementById("audioMsg"),hasAudio=false;
+if(audio.getAttribute("src")){hasAudio=true;playState.textContent="Ready \u2014 \u201cAgar Tum Mil Jao\u201d";audioMsg.textContent="Your song is loaded. Tap play, Dona. \uD83D\uDC99";}
 document.getElementById("audioFile").addEventListener("change",function(e){
   var f=e.target.files&&e.target.files[0];if(!f)return;
   audio.src=URL.createObjectURL(f);hasAudio=true;playState.textContent="Ready — “Agar Tum Mil Jao” (your file)";
