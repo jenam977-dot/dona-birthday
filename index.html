@@ -315,11 +315,11 @@ footer{position:relative;z-index:1;text-align:center;padding:26px 20px 40px;colo
             <div>
               <label for="streamUrl">Or paste an authorised streaming link</label>
               <div class="url-row">
-                <input type="url" id="streamUrl" placeholder="https://… (YouTube, Spotify, etc.)">
+                <input type="url" id="streamUrl" value="https://youtu.be/2E2WA8_teMY" placeholder="https://… (YouTube, Spotify, etc.)">
                 <button class="small-btn" id="applyStream" type="button">Set Listen Link</button>
               </div>
             </div>
-            <div><a class="btn ghost" id="listenLink" href="#" target="_blank" rel="noopener">Listen to the Song ↗</a></div>
+            <div><a class="btn ghost" id="listenLink" href="https://youtu.be/2E2WA8_teMY" target="_blank" rel="noopener">Listen to the Song ↗</a></div>
           </div>
           <audio id="audioEl" preload="metadata"></audio>
         </div>
@@ -513,7 +513,7 @@ captions.forEach(function(cap,idx){
   var slot=document.createElement("div");slot.className="slot reveal";
   slot.innerHTML='<div class="frame"><div class="ph"><div class="heart">♥</div><p>Your photo belongs here</p></div></div><div class="meta"><div class="cap" contenteditable="true" aria-label="Photo caption"></div><label class="up">＋ Add a photo<input type="file" accept="image/*"></label></div>';
   slot.querySelector(".cap").textContent=cap;
-  if(presetPhotos[idx]){var _img=document.createElement("img");_img.alt="A memory photograph of Dona and Manas";_img.src=presetPhotos[idx];_img.dataset.full=presetPhotos[idx];frame.appendChild(_img);var _ph=frame.querySelector(".ph");if(_ph)_ph.style.display="none";slot.querySelector(".up").firstChild.textContent="\u21bb Replace photo";}
+  if(presetPhotos[idx]){var _frame=slot.querySelector(".frame");var _img=document.createElement("img");_img.alt="A memory photograph of Dona and Manas";_img.src=presetPhotos[idx];_img.dataset.full=presetPhotos[idx];_frame.appendChild(_img);var _ph=_frame.querySelector(".ph");if(_ph)_ph.style.display="none";slot.querySelector(".up").firstChild.textContent="\u21bb Replace photo";}
   var input=slot.querySelector("input[type=file]"),frame=slot.querySelector(".frame");
   input.addEventListener("change",function(){
     var f=input.files&&input.files[0];if(!f)return;
