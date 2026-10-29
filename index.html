@@ -349,7 +349,7 @@ footer{position:relative;z-index:1;text-align:center;padding:26px 20px 40px;colo
     <div class="wrap">
       <p class="kicker reveal">Our Little Memories</p>
       <h2 class="sec-title reveal">Little Moments, Beautiful Memories 📸</h2>
-      <p class="sec-sub reveal">This space is waiting for your real photographs together. Add them below — every frame here will be one of your own.</p>
+      <p class="sec-sub reveal">Our real moments together — Manas and Dona, since 2019.</p>
       <div class="gallery" id="gallery"></div>
       <p class="hint">Tap “Add a photo” on any frame to place your own picture, tap the photo to view it full-screen, and tap a caption to write your own words.</p>
     </div>
@@ -506,12 +506,14 @@ document.getElementById("heartBtn").addEventListener("click",function(){
 });
 
 /* ---------- Gallery ---------- */
-var captions=["A favourite moment","Under the same sky","That smile","A day to remember","Just us","The beginning of forever"];
+var captions=["Our collage of moments","That smile, close to me","Just us, together","My favourite person","A day to remember","The beginning of forever"];
+var presetPhotos=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg"];
 var gallery=document.getElementById("gallery"),lb=document.getElementById("lightbox"),lbImg=document.getElementById("lbImg"),lbCap=document.getElementById("lbCap");
 captions.forEach(function(cap,idx){
   var slot=document.createElement("div");slot.className="slot reveal";
   slot.innerHTML='<div class="frame"><div class="ph"><div class="heart">♥</div><p>Your photo belongs here</p></div></div><div class="meta"><div class="cap" contenteditable="true" aria-label="Photo caption"></div><label class="up">＋ Add a photo<input type="file" accept="image/*"></label></div>';
   slot.querySelector(".cap").textContent=cap;
+  if(presetPhotos[idx]){var _img=document.createElement("img");_img.alt="A memory photograph of Dona and Manas";_img.src=presetPhotos[idx];_img.dataset.full=presetPhotos[idx];frame.appendChild(_img);var _ph=frame.querySelector(".ph");if(_ph)_ph.style.display="none";slot.querySelector(".up").firstChild.textContent="\u21bb Replace photo";}
   var input=slot.querySelector("input[type=file]"),frame=slot.querySelector(".frame");
   input.addEventListener("change",function(){
     var f=input.files&&input.files[0];if(!f)return;
